@@ -1,3 +1,9 @@
 [submodule "kitty/kitty-gruvbox-theme"]
 	path = kitty/kitty-gruvbox-theme
 	url = https://github.com/wdomitrz/kitty-gruvbox-theme
+[submodule "kitty/papercolor-kitty"]
+	path = kitty/papercolor-kitty
+	url = https://github.com/craffate/papercolor-kitty
+[submodule "kitty/tokyonight-kitty"]
+	path = kitty/tokyonight-kitty
+	url = https://github.com/aerosol/tokyonight-kitty
