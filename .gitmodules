@@ -7,3 +7,9 @@
 [submodule "kitty/tokyonight-kitty"]
 	path = kitty/tokyonight-kitty
 	url = https://github.com/aerosol/tokyonight-kitty
+[submodule "zsh/.zsh/zsh-syntax-highlighting"]
+	path = zsh/.zsh/zsh-syntax-highlighting
+	url = https://github.com/wdomitrz/kitty-gruvbox-theme
+[submodule "zsh/.zsh/zsh-autosuggestions"]
+	path = zsh/.zsh/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
