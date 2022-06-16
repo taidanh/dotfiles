@@ -167,6 +167,7 @@ lvim.plugins = {
   { "folke/tokyonight.nvim" },
   { "NLKNguyen/papercolor-theme" },
   { "folke/trouble.nvim" },
+  { "github/copilot.vim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
