@@ -9,9 +9,9 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
+lvim.format_on_save = false
 lvim.log.level = "warn"
-lvim.format_on_save = true
-vim.g.cmdheight = 1
+vim.opt.cmdheight = 1
 vim.wo.rnu = true
 
 -- colorscheme
