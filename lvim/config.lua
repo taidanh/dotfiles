@@ -9,6 +9,8 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
+vim.filetype.plugin = true
+vim.filetype.indent = true
 lvim.format_on_save = false
 lvim.log.level = "warn"
 vim.opt.cmdheight = 1
@@ -31,11 +33,25 @@ lvim.keys.normal_mode["<Leader>Y"] = "\"+yg_"
 lvim.keys.visual_mode["<Leader>y"] = "\"+y"
 
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-vim.cmd("tnoremap jj <C-\\><C-n>")
+vim.cmd("tnoremap jj    <C-\\><C-n>")
 vim.cmd("tnoremap <C-h> <C-\\><C-n><C-W>h")
 vim.cmd("tnoremap <C-j> <C-\\><C-n><C-W>j")
 vim.cmd("tnoremap <C-k> <C-\\><C-n><C-W>k")
 vim.cmd("tnoremap <C-l> <C-\\><C-n><C-W>l")
+
+vim.cmd("nnoremap cs    :lua MiniTrailspace.trim()<CR>")
+
+-- required plugins
+require('mini.surround').setup()
+require('mini.cursorword').setup()
+require('mini.trailspace').setup()
+require('mini.indentscope').setup()
+
+-- additional plugin setup
+Animation = function(s, n)
+  return 50/s
+end
+MiniIndentscope.config.draw.animation = Animation
 
 -- lvim.keys.terminal_mode["<Esc>"] = "<C-\><C-n>"
 -- unmap a default keymapping
@@ -168,6 +184,8 @@ lvim.plugins = {
   { "NLKNguyen/papercolor-theme" },
   { "folke/trouble.nvim" },
   { "github/copilot.vim" },
+  { "elixir-editors/vim-elixir" },
+  { "echasnovski/mini.nvim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
