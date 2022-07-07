@@ -4,6 +4,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd extendedglob nomatch notify
 unsetopt beep
+
+bindkey "^[[98;9u" backward-word
+bindkey "^[[102;9u" forward-word
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -76,6 +79,7 @@ PROMPT='%B%F{cyan}%n@%f %2~ > '
 export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$HOME/.config/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
+export PATH="/Users/admin.tmdanh/.local/bin/:$PATH"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
