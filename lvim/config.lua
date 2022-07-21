@@ -42,6 +42,8 @@ vim.cmd("tnoremap <C-l> <C-\\><C-n><C-W>l")
 vim.cmd("nnoremap cs    :lua MiniTrailspace.trim()<CR>")
 
 -- required plugins
+require('scope').setup()
+require('lsp_signature').setup()
 require('mini.surround').setup()
 require('mini.cursorword').setup()
 require('mini.trailspace').setup()
@@ -52,6 +54,10 @@ Animation = function(s, n)
   return 50/s
 end
 MiniIndentscope.config.draw.animation = Animation
+
+require('lualine').setup({
+  sections = {lualine_a = {'mode'}}
+})
 
 -- lvim.keys.terminal_mode["<Esc>"] = "<C-\><C-n>"
 -- unmap a default keymapping
@@ -186,6 +192,9 @@ lvim.plugins = {
   { "github/copilot.vim" },
   { "elixir-editors/vim-elixir" },
   { "echasnovski/mini.nvim" },
+  { "tiagovla/scope.nvim" },
+  { "ray-x/lsp_signature.nvim" },
+  { "liuchengxu/vista.vim" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
