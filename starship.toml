@@ -1,0 +1,120 @@
+format = """
+$username\
+$directory\
+$git_branch\
+$git_status\
+$linebreak\
+$rust\
+$c\
+$elixir\
+$lua\
+$python\
+$php\
+$nodejs
+$character
+"""
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# settings
+add_newline = false
+command_timeout = 100
+
+[character] # The name of the module we are configuring is "character"
+success_symbol = "[❯](bold green)" # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[x❯](bold red)"
+
+[username]
+show_always = true #always show username
+
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+style = "(bold grey)"
+format = "[$symbol]($style)"
+
+[conda]
+symbol = " "
+format = "[$symbol]($style)"
+
+[dart]
+symbol = " "
+format = "[$symbol]($style)"
+
+[directory]
+read_only = " "
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+format = "[$symbol]($style)"
+
+[elm]
+symbol = " "
+format = "[$symbol]($style)"
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+format = "[$symbol]($style)"
+
+[haskell]
+symbol = " "
+format = "[$symbol]($style)"
+
+[hg_branch]
+symbol = " "
+
+[julia]
+symbol = " "
+format = "[$symbol]($style)"
+
+[lua]
+symbol = " "
+style = "(bold purple)"
+format = "[$symbol]($style)"
+
+[memory_usage]
+symbol = " "
+
+[nim]
+symbol = " "
+format = "[$symbol]($style)"
+
+[nix_shell]
+symbol = " "
+format = "[$symbol]($style)"
+
+[php]
+symbol = " "
+style = "(bold blue)"
+format = "[$symbol]($style)"
+
+[nodejs]
+symbol = " "
+format = "[$symbol]($style)"
+
+[package]
+symbol = " "
+
+[python]
+symbol = " "
+format = "[$symbol]($style)"
+
+[spack]
+symbol = "🅢 "
+format = "[$symbol]($style)"
+
+[rust]
+symbol = " "
+format = "[$symbol]($style)"
