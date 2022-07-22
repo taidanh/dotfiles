@@ -12,6 +12,7 @@ an executable
 vim.filetype.plugin = true
 vim.filetype.indent = true
 lvim.format_on_save = false
+lvim.builtin.dap.active = true
 lvim.log.level = "warn"
 vim.opt.cmdheight = 1
 vim.wo.rnu = true
@@ -48,15 +49,17 @@ require('mini.surround').setup()
 require('mini.cursorword').setup()
 require('mini.trailspace').setup()
 require('mini.indentscope').setup()
+require('dap')
+-- require('rust-tools').setup()
 
 -- additional plugin setup
 Animation = function(s, n)
-  return 50/s
+  return 50 / s
 end
 MiniIndentscope.config.draw.animation = Animation
 
 require('lualine').setup({
-  sections = {lualine_a = {'mode'}}
+  sections = { lualine_a = { 'mode' } }
 })
 
 -- lvim.keys.terminal_mode["<Esc>"] = "<C-\><C-n>"
@@ -203,10 +206,10 @@ lvim.plugins = {
 --   -- enable wrap mode for json files only
 --   command = "setlocal wrap",
 -- })
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "zsh",
---   callback = function()
---     -- let treesitter use bash highlight for zsh files as well
---     require("nvim-treesitter.highlight").attach(0, "bash")
---   end,
--- })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "zsh",
+  callback = function()
+    -- let treesitter use bash highlight for zsh files as well
+    require("nvim-treesitter.highlight").attach(0, "bash")
+  end,
+})
