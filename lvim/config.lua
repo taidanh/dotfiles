@@ -49,8 +49,6 @@ require('mini.surround').setup()
 require('mini.cursorword').setup()
 require('mini.trailspace').setup()
 require('mini.indentscope').setup()
-require('dap')
--- require('rust-tools').setup()
 
 -- additional plugin setup
 Animation = function(s, n)
@@ -61,6 +59,9 @@ MiniIndentscope.config.draw.animation = Animation
 require('lualine').setup({
   sections = { lualine_a = { 'mode' } }
 })
+
+-- required files
+-- require('dap-init')
 
 -- lvim.keys.terminal_mode["<Esc>"] = "<C-\><C-n>"
 -- unmap a default keymapping
@@ -125,6 +126,54 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "" }
 lvim.builtin.treesitter.highlight.enabled = true
+
+-- Rust settings
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+
+local rust_opts = {
+    dap = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(
+            codelldb_path, liblldb_path)
+    }
+}
+
+require('rust-tools').setup(rust_opts)
+
+local dap = require('dap')
+dap.adapters.codelldb = {
+  type = 'server',
+  host = '127.0.0.1',
+  port = "${port}",
+  executable = {
+    command = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/adapter/codelldb',
+    args = {"--port", "${port}"},
+  },
+  -- name = 'codelldb',
+}
+
+dap.adapters.lldb = {
+  type = 'executable',
+  command = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/lldb/bin/lldb',
+  name = 'lldb'
+}
+
+dap.configurations.cpp = {
+  {
+    name = 'Launch file',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  },
+}
+dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
 
 -- generic LSP settings
 
@@ -198,6 +247,9 @@ lvim.plugins = {
   { "tiagovla/scope.nvim" },
   { "ray-x/lsp_signature.nvim" },
   { "liuchengxu/vista.vim" },
+  { "LunarVim/Colorschemes" },
+  { "simrat39/rust-tools.nvim" },
+  { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
