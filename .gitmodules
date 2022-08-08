@@ -14,5 +14,5 @@
 	path = zsh/.zsh/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule "temp"]
-	path = temp
+	path = nvim
 	url = https://github.com/NvChad/NvChad
