@@ -22,8 +22,6 @@ compinit
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# eval "$(starship init zsh)"
-
 alias py=python3
 alias vim=nvim
 alias ga="git add"
@@ -36,6 +34,7 @@ alias ls="exa"
 alias ll="exa -la"
 alias cat="bat"
 alias icat="kitty +kitten icat"
+alias cls="clear; exa"
 
 monitor() {
     tail -f $1 | bat --paging=never -l log
@@ -74,7 +73,9 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '%F{240}%b:%r%f'
 zstyle ':vcs_info:*' enable git
 
-PROMPT='%B%F{cyan}%n@%f %2~ > '
+# PROMPT='%B%F{cyan}%n@%f %2~ > '
+
+eval "$(starship init zsh)"
 
 export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$HOME/.config/bin:$PATH"
