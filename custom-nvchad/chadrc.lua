@@ -6,19 +6,16 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-  theme = "blossom",
+  theme = "pastelDark",
 }
 
-M.mapppings = require "custom.mappings"
+M.mappings = require "custom.mappings"
+
+local plugin_confs = require "custom.plugins.configs"
 
 M.plugins = {
   override = {
-      ["nvim-treesitter/nvim-treesitter"] = {
-        ensure_installed = {
-          "html",
-          "css",
-       },
-     },
+      ["nvim-treesitter/nvim-treesitter"] = plugin_confs.treesitter,
      -- ["NvChad/ui"] = {
      --   tabufline = {
      --      lazyload = false, -- to show tabufline by default
@@ -28,16 +25,7 @@ M.plugins = {
      --   },
      -- },
   },
-  user = {
-    ["goolord/alpha-nvim"] = {
-      disable = false,
-    },
-    ["folke/which-key.nvim"] = {
-      config = function ()
-        require("which-key").setup()
-      end,
-    },
-   },
+  user = require "custom.plugins"
 }
 
 return M

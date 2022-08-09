@@ -11,12 +11,27 @@ local M = {}
 
 M.general = {
   -- stuff
+  i = {
+    ["jk"] = { "<Esc>" },
+  },
   n = {
+    ["<leader>wf"] = { "<cmd>w<cr>" },
+    ["<leader>wa"] = { "<cmd>wa<cr>" },
+  },
+
+  t = {
+    ["jk"] = { "<C-\\><C-n>" },
+    ["<C-h>"] = { "<C-\\><C-n><C-w>h" },
+    ["<C-j>"] = { "<C-\\><C-n><C-w>j" },
+    ["<C-k>"] = { "<C-\\><C-n><C-w>k" },
+    ["<C-l>"] = { "<C-\\><C-n><C-w>l" },
   }
 }
 
 M.tabufline = {
-  plugin = true,
+  i = {
+    -- more keys!
+  },
   n = {
     ["L"] = {
       function()
@@ -32,10 +47,6 @@ M.tabufline = {
       "  goto prev buffer",
     },
   },
-
-  i = {
-    -- more keys!
-  }
 }
 
 return M
