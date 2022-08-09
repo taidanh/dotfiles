@@ -14,9 +14,15 @@ M.general = {
   i = {
     ["jk"] = { "<Esc>" },
   },
+
   n = {
-    ["<leader>wf"] = { "<cmd>w<cr>" },
-    ["<leader>wa"] = { "<cmd>wa<cr>" },
+    ["<leader>wf"] = { "<cmd>w<CR>" },
+    ["<leader>wa"] = { "<cmd>wa<CR>" },
+    ["gd"] = { vim.lsp.buf.definition, "Goto Definition" },
+    ["gD"] = { vim.lsp.buf.declaration, "Goto declaration" },
+    ["gr"] = { vim.lsp.buf.references, "Goto references" },
+    ["gI"] = { vim.lsp.buf.implementation, "Goto Implementation" },
+    ["gs"] = { vim.lsp.buf.signature_help, "show signature help" },
   },
 
   t = {

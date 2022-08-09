@@ -6,7 +6,7 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-  theme = "pastelDark",
+  theme = "blossom",
 }
 
 M.mappings = require "custom.mappings"
