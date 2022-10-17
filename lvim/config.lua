@@ -20,7 +20,7 @@ vim.wo.rnu = true
 -- colorscheme
 vim.opt.background = "light"
 vim.g.tokyonight_style = "day"
-lvim.colorscheme = "PaperColor"
+lvim.colorscheme = "blossom"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -30,6 +30,8 @@ lvim.leader = "space"
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.keys.normal_mode["<Leader>y"] = "\"+y"
 lvim.keys.normal_mode["<Leader>Y"] = "\"+yg_"
+lvim.keys.normal_mode["H"] = "<cmd>BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["L"] = "<cmd>BufferLineCycleNext<cr>"
 
 lvim.keys.visual_mode["<Leader>y"] = "\"+y"
 
@@ -128,52 +130,52 @@ lvim.builtin.treesitter.ignore_install = { "" }
 lvim.builtin.treesitter.highlight.enabled = true
 
 -- Rust settings
-local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
-local codelldb_path = extension_path .. 'adapter/codelldb'
-local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+-- local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/'
+-- local codelldb_path = extension_path .. 'adapter/codelldb'
+-- local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
-local rust_opts = {
-    dap = {
-        adapter = require('rust-tools.dap').get_codelldb_adapter(
-            codelldb_path, liblldb_path)
-    }
-}
+-- local rust_opts = {
+--   dap = {
+--     adapter = require('rust-tools.dap').get_codelldb_adapter(
+--       codelldb_path, liblldb_path)
+--   }
+-- }
 
-require('rust-tools').setup(rust_opts)
+-- require('rust-tools').setup(rust_opts)
 
-local dap = require('dap')
-dap.adapters.codelldb = {
-  type = 'server',
-  host = '127.0.0.1',
-  port = "${port}",
-  executable = {
-    command = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/adapter/codelldb',
-    args = {"--port", "${port}"},
-  },
-  -- name = 'codelldb',
-}
+-- local dap = require('dap')
+-- dap.adapters.codelldb = {
+--   type = 'server',
+--   host = '127.0.0.1',
+--   port = "${port}",
+--   executable = {
+--     command = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/adapter/codelldb',
+--     args = { "--port", "${port}" },
+--   },
+--   -- name = 'codelldb',
+-- }
 
-dap.adapters.lldb = {
-  type = 'executable',
-  command = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/lldb/bin/lldb',
-  name = 'lldb'
-}
+-- dap.adapters.lldb = {
+--   type = 'executable',
+--   command = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.7.0/lldb/bin/lldb',
+--   name = 'lldb'
+-- }
 
-dap.configurations.cpp = {
-  {
-    name = 'Launch file',
-    type = 'lldb',
-    request = 'launch',
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
-  },
-}
-dap.configurations.c = dap.configurations.cpp
-dap.configurations.rust = dap.configurations.cpp
+-- dap.configurations.cpp = {
+--   {
+--     name = 'Launch file',
+--     type = 'lldb',
+--     request = 'launch',
+--     program = function()
+--       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+--     end,
+--     cwd = '${workspaceFolder}',
+--     stopOnEntry = false,
+--     args = {},
+--   },
+-- }
+-- dap.configurations.c = dap.configurations.cpp
+-- dap.configurations.rust = dap.configurations.cpp
 
 -- generic LSP settings
 
@@ -249,7 +251,8 @@ lvim.plugins = {
   { "liuchengxu/vista.vim" },
   { "LunarVim/Colorschemes" },
   { "simrat39/rust-tools.nvim" },
-  { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+  { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
+  { "rayes0/blossom.vim" }
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
