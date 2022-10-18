@@ -26,21 +26,29 @@ lvim.colorscheme = "blossom"
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
+
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
+lvim.keys.insert_mode["jk"]    = "<esc>"
+lvim.keys.insert_mode["kj"]    = "<esc>"
+lvim.keys.insert_mode["<C-a>"] = "<esc>I"
+lvim.keys.insert_mode["<C-e>"] = "<esc>A"
+
+lvim.keys.normal_mode["<C-s>"]     = ":w<cr>"
 lvim.keys.normal_mode["<Leader>y"] = "\"+y"
 lvim.keys.normal_mode["<Leader>Y"] = "\"+yg_"
-lvim.keys.normal_mode["H"] = "<cmd>BufferLineCyclePrev<cr>"
-lvim.keys.normal_mode["L"] = "<cmd>BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["H"]         = "<cmd>BufferLineCyclePrev<cr>"
+lvim.keys.normal_mode["L"]         = "<cmd>BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<C-t>"]     = "<cmd>ToggleTerm<cr>"
 
 lvim.keys.visual_mode["<Leader>y"] = "\"+y"
 
 vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-vim.cmd("tnoremap jj    <C-\\><C-n>")
+vim.cmd("tnoremap jk    <C-\\><C-n>")
 vim.cmd("tnoremap <C-h> <C-\\><C-n><C-W>h")
 vim.cmd("tnoremap <C-j> <C-\\><C-n><C-W>j")
 vim.cmd("tnoremap <C-k> <C-\\><C-n><C-W>k")
 vim.cmd("tnoremap <C-l> <C-\\><C-n><C-W>l")
+vim.cmd("tnoremap <C-t> <cmd>ToggleTerm<cr>")
 
 vim.cmd("nnoremap cs    :lua MiniTrailspace.trim()<CR>")
 
@@ -240,7 +248,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 
 -- Additional Plugins
 lvim.plugins = {
-  { "folke/tokyonight.nvim" },
   { "NLKNguyen/papercolor-theme" },
   { "folke/trouble.nvim" },
   { "github/copilot.vim" },
@@ -251,7 +258,6 @@ lvim.plugins = {
   { "liuchengxu/vista.vim" },
   { "LunarVim/Colorschemes" },
   { "simrat39/rust-tools.nvim" },
-  { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } },
   { "rayes0/blossom.vim" }
 }
 
