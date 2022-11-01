@@ -20,7 +20,7 @@ vim.wo.rnu = true
 -- colorscheme
 vim.opt.background = "light"
 vim.g.tokyonight_style = "day"
-lvim.colorscheme = "blossom"
+lvim.colorscheme = "tokyonight-night"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
@@ -58,18 +58,19 @@ require('lsp_signature').setup()
 require('mini.surround').setup()
 require('mini.cursorword').setup()
 require('mini.trailspace').setup()
-require('mini.indentscope').setup()
+-- require('mini.indentscope').setup()
 
 -- additional plugin setup
-Animation = function(s, n)
-  return 50 / s
-end
-MiniIndentscope.config.draw.animation = Animation
+-- Animation = function(s, n)
+--   return 50 / s
+-- end
+-- MiniIndentscope.config.draw.animation = Animation
 
-require('lualine').setup({
-  sections = { lualine_a = { 'mode' } }
-})
+-- require('lualine').setup({
+--   sections = { lualine_a = { 'mode' } }
+-- })
 
+vim.cmd("au BufRead,BufNewFile *.g4 set filetype=antlr4")
 -- required files
 -- require('dap-init')
 
@@ -113,7 +114,6 @@ lvim.builtin.which_key.mappings["t"] = {
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
-lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
