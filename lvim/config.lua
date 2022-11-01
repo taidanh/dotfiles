@@ -258,7 +258,8 @@ lvim.plugins = {
   { "liuchengxu/vista.vim" },
   { "LunarVim/Colorschemes" },
   { "simrat39/rust-tools.nvim" },
-  { "rayes0/blossom.vim" }
+  { "rayes0/blossom.vim" },
+  { "dylon/vim-antlr" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
