@@ -52,6 +52,19 @@ vim.cmd("tnoremap <C-t> <cmd>ToggleTerm<cr>")
 
 vim.cmd("nnoremap cs    :lua MiniTrailspace.trim()<CR>")
 
+lvim.autocommands = {
+  {
+    "BufEnter", {
+      pattern = { "*.php", "*.rs", "*.c", "*.cpp", },
+      command = "setlocal shiftwidth=4 softtabstop=4 expandtab",
+    },
+    "BufEnter", {
+      pattern = { "*.lua", "*.hs", "*.vue", "*.ts", "*.js", },
+      command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
+    }
+  },
+}
+
 -- required plugins
 require('scope').setup()
 require('lsp_signature').setup()
