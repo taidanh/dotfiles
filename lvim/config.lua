@@ -16,22 +16,26 @@ lvim.builtin.dap.active = true
 lvim.log.level = "warn"
 vim.opt.cmdheight = 1
 vim.wo.rnu = true
+vim.wo.lbr = true -- wrap whole words
 
 -- colorscheme
-vim.opt.background = "light"
+-- vim.opt.background = "light"
 vim.g.tokyonight_style = "day"
-lvim.colorscheme = "tokyonight-night"
+lvim.colorscheme = "blossom"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 
+local opts = {}
+
 -- add your own keymapping
 lvim.keys.insert_mode["jk"]    = "<esc>"
 lvim.keys.insert_mode["kj"]    = "<esc>"
 lvim.keys.insert_mode["<C-a>"] = "<esc>I"
 lvim.keys.insert_mode["<C-e>"] = "<esc>A"
+lvim.keys.insert_mode["<C-h>"] = vim.lsp.buf.signature_help()
 
 lvim.keys.normal_mode["<C-s>"]     = ":w<cr>"
 lvim.keys.normal_mode["<Leader>y"] = "\"+y"
@@ -39,18 +43,29 @@ lvim.keys.normal_mode["<Leader>Y"] = "\"+yg_"
 lvim.keys.normal_mode["H"]         = "<cmd>BufferLineCyclePrev<cr>"
 lvim.keys.normal_mode["L"]         = "<cmd>BufferLineCycleNext<cr>"
 lvim.keys.normal_mode["<C-t>"]     = "<cmd>ToggleTerm<cr>"
+lvim.keys.normal_mode["j"]         = "gj"
+lvim.keys.normal_mode["k"]         = "gk"
+lvim.keys.normal_mode["gd"]         = vim.lsp.buf.definition(opts)
+lvim.keys.normal_mode["[d"]         = vim.diagnostic.goto_next(opts)
+lvim.keys.normal_mode["]d"]         = vim.diagnostic.goto_prev(opts)
 
 lvim.keys.visual_mode["<Leader>y"] = "\"+y"
+lvim.keys.visual_mode["j"]         = "gj"
+lvim.keys.visual_mode["k"]         = "gk"
 
-vim.cmd("tnoremap <Esc> <C-\\><C-n>")
-vim.cmd("tnoremap jk    <C-\\><C-n>")
-vim.cmd("tnoremap <C-h> <C-\\><C-n><C-W>h")
-vim.cmd("tnoremap <C-j> <C-\\><C-n><C-W>j")
-vim.cmd("tnoremap <C-k> <C-\\><C-n><C-W>k")
-vim.cmd("tnoremap <C-l> <C-\\><C-n><C-W>l")
-vim.cmd("tnoremap <C-t> <cmd>ToggleTerm<cr>")
+local function setupTermKeys()
+  vim.cmd("tnoremap <Esc> <C-\\><C-n>")
+  vim.cmd("tnoremap jk    <C-\\><C-n>")
+  vim.cmd("tnoremap <C-h> <C-\\><C-n><C-W>h")
+  vim.cmd("tnoremap <C-j> <C-\\><C-n><C-W>j")
+  vim.cmd("tnoremap <C-k> <C-\\><C-n><C-W>k")
+  vim.cmd("tnoremap <C-l> <C-\\><C-n><C-W>l")
+  vim.cmd("tnoremap <C-t> <cmd>ToggleTerm<cr>")
 
-vim.cmd("nnoremap cs    :lua MiniTrailspace.trim()<CR>")
+  vim.cmd("nnoremap cs    :lua MiniTrailspace.trim()<CR>")
+end
+
+setupTermKeys()
 
 lvim.autocommands = {
   {
@@ -71,7 +86,7 @@ require('lsp_signature').setup()
 require('mini.surround').setup()
 require('mini.cursorword').setup()
 require('mini.trailspace').setup()
--- require('mini.indentscope').setup()
+require('mini.indentscope').setup()
 
 -- additional plugin setup
 -- Animation = function(s, n)
@@ -83,7 +98,7 @@ require('mini.trailspace').setup()
 --   sections = { lualine_a = { 'mode' } }
 -- })
 
-vim.cmd("au BufRead,BufNewFile *.g4 set filetype=antlr4")
+-- vim.cmd("au BufRead,BufNewFile *.g4 set filetype=antlr4")
 -- required files
 -- require('dap-init')
 
