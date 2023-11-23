@@ -7,8 +7,9 @@
 #   __/ |
 #  |___/
 
-# open terminal, blazingly fast compared to iTerm/Hyper
+# Launch applications
 cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd + shift - return : open -n -a Firefox --args -new-window
 
 # Send window to space
 shift + alt - 1 : yabai -m window --space 1; yabai -m space --focus 1

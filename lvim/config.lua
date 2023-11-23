@@ -9,14 +9,17 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 
 -- general
-vim.filetype.plugin = true
-vim.filetype.indent = true
-lvim.format_on_save = false
 lvim.builtin.dap.active = true
+lvim.format_on_save = false
 lvim.log.level = "warn"
+vim.filetype.indent = true
+vim.filetype.plugin = true
 vim.opt.cmdheight = 1
-vim.wo.rnu = true
+vim.opt.scrolloff = 7
 vim.wo.lbr = true -- wrap whole words
+vim.wo.rnu = true
+vim.cmd("set spelllang=en")
+vim.cmd("set spellsuggest=best,9")
 
 -- colorscheme
 -- vim.opt.background = "light"
