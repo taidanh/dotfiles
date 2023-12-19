@@ -79,9 +79,15 @@ lvim.autocommands = {
     "BufEnter", {
       pattern = { "*.lua", "*.hs", "*.vue", "*.ts", "*.js", },
       command = "setlocal shiftwidth=2 softtabstop=2 expandtab",
-    }
+    },
   },
 }
+
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	  pattern = { "*.json", "*.jsonc" },
+-- 	  -- enable wrap mode for json files only
+-- 	  command = "setlocal wrap",
+-- })
 
 -- required plugins
 require('scope').setup()
@@ -299,6 +305,14 @@ lvim.plugins = {
 --   -- enable wrap mode for json files only
 --   command = "setlocal wrap",
 -- })
+
+require('mason-lspconfig').setup_handlers({
+  function(server)
+    require('lvim.lsp.manager').setup(server)
+  end
+})
+
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
   callback = function()

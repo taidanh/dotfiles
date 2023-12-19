@@ -30,8 +30,8 @@ alias gp="git push"
 alias gs="git status"
 alias gcam="git commit -am"
 alias gls="git ls-files"
-alias ls="exa"
-alias ll="exa -la"
+alias ls="eza"
+alias ll="eza -la"
 alias cat="bat"
 alias icat="kitty +kitten icat"
 alias cls="clear; exa"
@@ -76,11 +76,13 @@ zstyle ':vcs_info:*' enable git
 # PROMPT='%B%F{cyan}%n@%f %2~ > '
 
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh --cmd j)"
 
 export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$HOME/.config/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
 export PATH="/Users/admin.tmdanh/.local/bin/:$PATH"
+export PATH="$HOME/.config/cellar/scripts:$PATH"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
