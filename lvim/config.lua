@@ -83,12 +83,6 @@ lvim.autocommands = {
   },
 }
 
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	  pattern = { "*.json", "*.jsonc" },
--- 	  -- enable wrap mode for json files only
--- 	  command = "setlocal wrap",
--- })
-
 -- required plugins
 require('scope').setup()
 require('lsp_signature').setup()

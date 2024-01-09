@@ -8,7 +8,7 @@ alias py = python3
 alias vim = nvim
 alias ga = git add
 alias gc = git commit
-alias gp = git push
+alias gp = git pull
 alias gs = git status
 alias gcam = git commit -am
 alias gls = git ls-files
@@ -25,7 +25,7 @@ def monitor [filename] {
 
 def mkcd [dirname] {
     mkdir $dirname
-    j $dirname
+    cd $dirname
 }
 
 $env.PATH = ($env.PATH | split row (char esep)
