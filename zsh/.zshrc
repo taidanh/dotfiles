@@ -87,3 +87,5 @@ export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
   [ -f "/Users/taidanh/.ghcup/env" ] && source "/Users/taidanh/.ghcup/env" # ghcup-env
+
+source /Users/taidanh/.config/broot/launcher/bash/br

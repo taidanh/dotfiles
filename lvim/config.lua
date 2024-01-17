@@ -291,6 +291,7 @@ lvim.plugins = {
   { "simrat39/rust-tools.nvim" },
   { "rayes0/blossom.vim" },
   { "dylon/vim-antlr" },
+  { "mbbill/undotree" },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
