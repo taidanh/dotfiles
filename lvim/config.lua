@@ -36,6 +36,8 @@ local opts = {}
 -- add your own keymapping
 lvim.keys.insert_mode["jk"]    = "<esc>"
 lvim.keys.insert_mode["kj"]    = "<esc>"
+lvim.keys.insert_mode["j;"]    = "<esc>A;<esc>"
+lvim.keys.insert_mode["k;"]    = "<esc>A;<esc>"
 lvim.keys.insert_mode["<C-a>"] = "<esc>I"
 lvim.keys.insert_mode["<C-e>"] = "<esc>A"
 lvim.keys.insert_mode["<C-h>"] = vim.lsp.buf.signature_help()
