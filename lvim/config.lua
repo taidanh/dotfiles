@@ -283,7 +283,6 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.plugins = {
   { "NLKNguyen/papercolor-theme" },
   { "folke/trouble.nvim" },
-  { "github/copilot.vim" },
   { "elixir-editors/vim-elixir" },
   { "echasnovski/mini.nvim" },
   { "tiagovla/scope.nvim" },

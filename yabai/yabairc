@@ -24,3 +24,8 @@ yabai -m config focus_follows_mouse 	autoraise
 
 # Ignore app
 yabai -m rule --add app='^FaceTime$' manage=off
+
+# cycle focus
+if [[ $(yabai -m query --spaces --display | jq '.[-1]."has-focus"') == "false" ]]; then yabai -m space --focus next; fi
+# backwards
+# if [[ $(yabai -m query --spaces --display | jq '.[0]."has-focus"') == "false" ]]; then yabai -m space --focus prev; fi

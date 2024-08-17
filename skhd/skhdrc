@@ -56,4 +56,5 @@ shift + alt - p : yabai -m window --toggle sticky;\
 shift + alt - c : yabai -m window --toggle float;\
           yabai -m window --grid 12:12:1:1:10:10
 
-
+# Refresh
+shift + alt - r : yabai --restart-service; skhd --restart-service
