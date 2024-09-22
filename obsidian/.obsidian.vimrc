@@ -1,4 +1,13 @@
-"
+" DIDN'T WORK ~~operate on full words instead of "programming words"~~
+" " nmap w W
+" " nmap W w
+
+" " nnoremap <expr> w (v:count == 0 ? 'W' : 'w')
+" " nnoremap <expr> W (v:count == 0 ? 'w' : 'W')
+
+" " vnoremap w W
+" " vnoremap W w
+
 " Have j and k navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
