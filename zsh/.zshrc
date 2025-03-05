@@ -78,14 +78,19 @@ zstyle ':vcs_info:*' enable git
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh --cmd j)"
 
+export PATH="$HOME/.local/bin/:$PATH"
 export PATH="$HOME/.emacs.d/bin:$PATH"
 export PATH="$HOME/.config/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
-export PATH="/Users/admin.tmdanh/.local/bin/:$PATH"
 export PATH="$HOME/.config/cellar/scripts:$PATH"
+export PATH="/opt/homebrew/opt/python@3.12/libexec/bin:$PATH"
+# export PATH="/Users/admin.tmdanh/.local/bin/:$PATH"
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
   [ -f "/Users/taidanh/.ghcup/env" ] && source "/Users/taidanh/.ghcup/env" # ghcup-env
 
+GOPATH="/opt/homebrew/bin/go"
+
 source /Users/taidanh/.config/broot/launcher/bash/br
+source "$HOME/.rye/env"
