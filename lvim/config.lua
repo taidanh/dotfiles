@@ -308,6 +308,14 @@ require('mason-lspconfig').setup_handlers({
   end
 })
 
+vim.api.nvim_create_autocmd('BufRead', {
+  group = vim.api.nvim_create_augroup('detect_typst', { clear = true }),
+  desc = 'Set filetype for *.typ files',
+  pattern = { '*.typ' },
+  callback = function()
+    vim.cmd('set filetype=typst')
+  end,
+})
 
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "zsh",
